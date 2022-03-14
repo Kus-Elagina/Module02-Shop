@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,700;1,700&family=Jost:wght@400;500&display=swap');
 
 $green: #27300f;
@@ -19,7 +20,7 @@ body {
 
 .header {
     max-width: 1440px;
-    margin: 0 auto;
+    margin: 0 auto 4.6rem;
     padding: 4rem 15px 0 15px;
     display: flex;
     justify-content: space-between;
@@ -48,8 +49,8 @@ body {
     }
     &__cart {
         display: block;
-        width: 3.8rem;
-        height: 3.8rem;
+        width: 4rem;
+        height: 4rem;
         background-color: $orange;
         border-radius: 100%;
         background-image: url(../images/cart.svg);
@@ -75,8 +76,8 @@ body {
     display: block;
     background-image: url(../images/logo.svg);
     background-repeat: no-repeat;
-    background-size: cover;
-    width: 12.3rem;
+    background-size: contain;
+    width: 12rem;
     height: 3.2rem;
 }
 .container {
@@ -89,17 +90,144 @@ body {
     background-image: url(../images/main.png);
     background-size: cover;
     background-position-x: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-bottom: 187px;
+    z-index: 0;
     &__item {
         margin-left: 12rem;
         max-width: 378px;
-        margin-top: 6rem;
+        margin-top: 6.1rem;
     }
     &__link {
         margin-top: 6rem;
     }
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+    &__text {
+        padding-top: 5rem;
+    }
+    &__cover {
+        flex-basis: 758px;
+        height: 758px;
+        border: 1px solid rgba($green, 0.4);
+        border-radius: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    &__line {
+        width: 656px;
+        height: 656px;
+        border: 1px solid rgba($green, 0.4);
+        border-radius: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__image {
+        width: 93%;
+    }
+    &__btn {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        position: absolute;
+        color: $green;
+        text-align: left;
+        line-height: 1.5;
+        &:hover {
+            .main__btn {
+                &::before {
+                    background-color: $orange;
+                    box-shadow: 0 0 0 4px $white, 0 0 0 5px $orange;
+                }
+            }
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            box-shadow: 0 0 0 4px $white, 0 0 0 5px $green;
+            border-radius: 100%;
+            background-color: $green;
+        }
+        &_1 {
+            top: 46px;
+            left: 63px;
+            &::before {
+                bottom: 12px;
+                right: -35px;
+            }
+        }
+        &_2 {
+            top: 184px;
+            right: 2px;
+            &::before {
+                top: 21px;
+                left: -26px;
+            }
+        }
+        &_3 {
+            bottom: -52px;
+            right: 244px;
+            &::before {
+                top: -22px;
+                left: 13px;
+            }
+        }
+    }
+    &__food {
+        display: block;
+        color:rgba($green, 0.8)
+    }
+    &__tomato {
+        position: absolute;
+        bottom: 113px;
+        right: 111px;
+        width: 11rem;
+        z-index: -1;
+    }
+    &__avocado {
+        position: absolute;
+        top: 50px;
+        right: -17px;
+        width: 18.7rem;
+        z-index: -1;
+    }
+    &__cucumber {
+        position: absolute;
+        top: 0px;
+        left: 680px;
+        width: 8.4rem;
+        z-index: -1;
+    }
+    &__pepper {
+        position: absolute;
+        top: 398px;
+        left: 27px;
+        width: 8.6rem;
+        z-index: -1;
+    }
+    &__beans {
+        position: absolute;
+        bottom: 150px;
+        left: -11px;
+        width: 12rem;
+        z-index: -1;
+    }
 }
 .title {
     font-family: $font-cormorant;
+    line-height: 1;
     font-weight: 700;
     font-size: 8rem;
     margin: 0;
@@ -114,17 +242,59 @@ body {
 }
 .description {
     margin: 0;
+    line-height: 1.5;
     &_size-s {
         font-size: 1.8rem;
     }
+    &_size-m {
+        font-size: 2.4rem;
+    }          
 }
 .link {
     color: $white;
     text-transform: uppercase;
-    padding: 2.5rem 4.2rem;
+    padding: 2.3rem 4.2rem;
     background-color: $orange;
     box-shadow: 0px 1rem 1.1rem .2rem rgba(207, 92, 13, 0.2);
     text-decoration: none;
+    letter-spacing: 0.13rem;
     border-radius: 3.8rem;
     display: inline-block;
+}
+
+.offer {
+    background-image: url(../images/offer.png);
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    padding-top: 2.5rem;
+    padding-bottom: 200px;
+    &__text {
+        margin-top: 6rem;
+        max-width: 700px;
+    }
+    &__slider {
+        overflow: hidden;
+        padding-top: 100px;
+    }
+}
+
+.swiper {
+    overflow: initial;
+    &-slide {
+        border: 1px solid $green;
+    }
+    &-pagination {
+        display: none;
+    }
+    &-button-next, &-button-prev {
+        top: -60px;
+        &::after {
+            color: $green;
+        }
+    }
+    &-button-prev {
+        left: initial;
+        right: 100px;
+    }
 }
